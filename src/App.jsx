@@ -1167,6 +1167,13 @@ function App() {
   );
 
 }
+<article
+  className="project-card"
+  key={project.number}
+  onClick={() => openProject(project)}
+>
+</article>
+
 
 
 export default App;
