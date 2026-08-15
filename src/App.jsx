@@ -1,6 +1,13 @@
 import "./App.css";
 import profilePhoto from "./assets/profile.jpg";
 
+import combatCombo from "./assets/combat-combo.png";
+import topupRoblox from "./assets/topup-roblox.png";
+import kalaAnanta from "./assets/kala-ananta.png";
+import catalog from "./assets/catalog.png";
+import scratchGame from "./assets/scratch-game.png";
+import weatherApp from "./assets/weather-app.png";
+
 const skills = [
   {
     name: "HTML",
@@ -29,6 +36,7 @@ const projects = [
     number: "01",
     title: "Combat Combo",
     category: "Game Development",
+    image: combatCombo,
     description:
       "Game yang sedang saya kembangkan untuk platform mobile dan PC. Project ini berfokus pada gameplay, desain, dan pengembangan pengalaman bermain.",
     tech: ["Game Development", "Mobile", "PC"],
@@ -38,6 +46,7 @@ const projects = [
     number: "02",
     title: "Top Up Roblox — Ailochia",
     category: "Web Development",
+    image: topupRoblox,
     description:
       "Website top up Roblox yang dibuat untuk menampilkan pilihan produk, nominal Robux, harga, dan form pembelian secara sederhana.",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -47,6 +56,7 @@ const projects = [
     number: "03",
     title: "Kala Ananta",
     category: "Game / Visual Novel",
+    image: kalaAnanta,
     description:
       "Project game dengan konsep visual novel yang berfokus pada desain tampilan, visual, dan pengalaman pengguna.",
     tech: ["Game Design", "UI Design"],
@@ -56,6 +66,7 @@ const projects = [
     number: "04",
     title: "Student Catalog Website",
     category: "Web Development",
+    image: catalog,
     description:
       "Website katalog yang dibuat untuk menampilkan dan memperkenalkan produk atau karya siswa melalui tampilan web yang terstruktur.",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -65,8 +76,9 @@ const projects = [
     number: "05",
     title: "Scratch Game",
     category: "Game Development",
+    image: scratchGame,
     description:
-      "Project game yang dibuat menggunakan Scratch sebagai bagian dari proses belajar dasar game development dan interactive programming.",
+      "Project game yang dibuat menggunakan Scratch sebagai bagian dari proses belajar dasar game development.",
     tech: ["Scratch", "Game Design"],
     status: "Completed",
   },
@@ -74,6 +86,7 @@ const projects = [
     number: "06",
     title: "Weather App",
     category: "Application",
+    image: weatherApp,
     description:
       "Aplikasi untuk mencari informasi cuaca berdasarkan kota menggunakan API dan tampilan GUI.",
     tech: ["Java", "API", "GUI"],
@@ -116,19 +129,19 @@ function App() {
           <h1>
             Aquilla
             <br />
-            <span>Ramadhani </span>
-             <span>Syacdhan.</span>
+            <span>Ramadhani Syacdhan.</span>
           </h1>
 
           <h2>
-            Web Developer <b>|</b> PPLG Student
+            Web Developer <b>|</b> RPL Student
           </h2>
 
           <p>
-            Saya adalah siswa jurusan Pengembangan Perangkat Lunak dan Gim
-            yang memiliki ketertarikan pada web development dan programming.
-            Saya senang mempelajari hal baru dan membangun berbagai project
-            untuk mengembangkan kemampuan saya.
+            Saya adalah siswa jurusan Rekayasa Perangkat Lunak
+            yang memiliki ketertarikan pada web development dan
+            programming. Saya senang mempelajari hal baru dan
+            membangun berbagai project untuk mengembangkan
+            kemampuan saya.
           </p>
 
           <div className="hero-buttons">
@@ -196,7 +209,6 @@ function App() {
 
             <div className="personal-item">
               <span>Email</span>
-
               <strong className="blue-text">
                 aquillaramadhani8@gmail.com
               </strong>
@@ -209,7 +221,7 @@ function App() {
 
             <div className="personal-item">
               <span>Jurusan</span>
-              <strong>PPLG</strong>
+              <strong>RPL</strong>
             </div>
 
           </div>
@@ -234,15 +246,16 @@ function App() {
           </h2>
 
           <p>
-            Saya merupakan siswa SMK jurusan Pengembangan Perangkat Lunak
-            dan Gim. Saya memiliki minat yang besar dalam pengembangan
-            website dan selalu bersemangat untuk mempelajari teknologi baru.
+            Saya merupakan siswa SMK jurusan Rekayasa Perangkat
+            Lunak. Saya memiliki minat yang besar dalam pengembangan
+            website dan selalu bersemangat untuk mempelajari
+            teknologi baru.
           </p>
 
           <p>
             Melalui berbagai project sekolah dan personal, saya terus
-            mengembangkan kemampuan dalam membuat website, aplikasi, dan
-            game yang menarik, fungsional, dan mudah digunakan.
+            mengembangkan kemampuan dalam membuat website, aplikasi,
+            dan game yang menarik, fungsional, dan mudah digunakan.
           </p>
 
           <div className="about-features">
@@ -386,13 +399,13 @@ function App() {
 
               </div>
 
+              {/* PROJECT IMAGE */}
               <div className="project-preview">
 
-                <div className="preview-code">
-                  &lt;
-                  {project.title.split(" ")[0]}
-                  /&gt;
-                </div>
+                <img
+                  src={project.image}
+                  alt={project.title}
+                />
 
               </div>
 
@@ -447,14 +460,16 @@ function App() {
             Saya terbuka untuk kesempatan belajar, berkolaborasi,
             dan mendapatkan pengalaman melalui PKL.
           </p>
+
           <a
-           href="https://mail.google.com/mail/?view=cm&fs=1&to=aquillaramadhani8@gmail.com"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="primary-button"
->
-  Email Me ↗
-</a>
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=aquillaramadhani8@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="primary-button"
+          >
+            Email Me ↗
+          </a>
+
         </div>
 
       </section>
