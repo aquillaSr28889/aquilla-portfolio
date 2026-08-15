@@ -1997,3 +1997,434 @@ footer {
   }
 
 }
+
+/* =========================================
+   PROJECT CLICK
+========================================= */
+
+.project-card {
+  cursor: pointer;
+}
+
+.project-view {
+  margin-top: 18px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  transition: 0.3s ease;
+}
+
+.project-card:hover .project-view {
+  transform: translateX(5px);
+}
+
+
+/* =========================================
+   PROJECT MODAL OVERLAY
+========================================= */
+
+.project-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(10, 20, 40, 0.72);
+
+  backdrop-filter: blur(8px);
+
+  animation: modalFade 0.25s ease;
+}
+
+
+@keyframes modalFade {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+.project-modal {
+  position: relative;
+
+  width: min(900px, 100%);
+
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  padding: 28px;
+
+  background: #ffffff;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.25);
+
+  animation: modalUp 0.3s ease;
+}
+
+
+@keyframes modalUp {
+
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.modal-close {
+  position: absolute;
+
+  top: 18px;
+  right: 18px;
+
+  z-index: 5;
+
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #f1f5f9;
+
+  color: #17233d;
+
+  font-size: 28px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+
+.modal-close:hover {
+  background: #e2e8f0;
+
+  transform: rotate(90deg);
+}
+
+
+/* =========================================
+   MODAL HEADER
+========================================= */
+
+.modal-header {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding-right: 55px;
+
+  margin-bottom: 8px;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #5685ef;
+}
+
+
+.project-modal > h2 {
+  margin: 0 0 22px;
+
+  font-size: 32px;
+
+  color: #17233d;
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.modal-image-container {
+  position: relative;
+
+  width: 100%;
+
+  height: 450px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #f1f5f9;
+
+  border-radius: 18px;
+
+  border: 1px solid #dbe5f5;
+}
+
+
+.modal-project-image {
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+
+/* =========================================
+   SLIDER BUTTON
+========================================= */
+
+.slider-button {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #17233d;
+
+  font-size: 34px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.15);
+
+  transition: 0.25s ease;
+
+  z-index: 2;
+}
+
+
+.slider-button:hover {
+  background: #ffffff;
+
+  transform: translateY(-50%) scale(1.08);
+
+  color: var(--blue-dark);
+}
+
+
+.slider-prev {
+  left: 18px;
+}
+
+
+.slider-next {
+  right: 18px;
+}
+
+
+/* =========================================
+   IMAGE COUNTER
+========================================= */
+
+.image-counter {
+  text-align: center;
+
+  margin-top: 12px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  color: #64748b;
+}
+
+
+/* =========================================
+   DOTS
+========================================= */
+
+.image-dots {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 12px;
+}
+
+
+.image-dots button {
+  width: 8px;
+  height: 8px;
+
+  padding: 0;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background: #cbd5e1;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+
+.image-dots button.active {
+  width: 22px;
+
+  border-radius: 10px;
+
+  background: #5685ef;
+}
+
+
+/* =========================================
+   MODAL CONTENT
+========================================= */
+
+.modal-content {
+  margin-top: 25px;
+}
+
+
+.modal-content h3 {
+  margin: 10px 0;
+
+  font-size: 20px;
+
+  color: #17233d;
+}
+
+
+.modal-content p {
+  margin: 0;
+
+  line-height: 1.8;
+
+  color: #64748b;
+}
+
+
+.modal-tags {
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+
+.modal-tags span {
+  padding: 8px 13px;
+
+  border-radius: 10px;
+
+  background: #edf4ff;
+
+  color: #4676df;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+  .project-modal-overlay {
+    padding: 15px;
+  }
+
+
+  .project-modal {
+    padding: 20px;
+
+    border-radius: 18px;
+
+    max-height: 92vh;
+  }
+
+
+  .project-modal > h2 {
+    font-size: 24px;
+
+    padding-right: 35px;
+  }
+
+
+  .modal-image-container {
+    height: 280px;
+
+    border-radius: 14px;
+  }
+
+
+  .slider-button {
+    width: 40px;
+    height: 40px;
+
+    font-size: 28px;
+  }
+
+
+  .slider-prev {
+    left: 10px;
+  }
+
+
+  .slider-next {
+    right: 10px;
+  }
+
+}

@@ -10,18 +10,20 @@ import combat3 from "./assets/combat-3.png";
 import combat4 from "./assets/combat-4.png";
 import combat5 from "./assets/combat-5.png";
 
+// TOP UP ROBLOX
+import topup1 from "./assets/topup-roblox-1.png";
+import topup2 from "./assets/topup-roblox-2.png";
+
 // KALA ANANTA
 import kala1 from "./assets/kala-1.png";
 import kala2 from "./assets/kala-2.png";
 import kala3 from "./assets/kala-3.png";
 
-// PROJECT LAIN
+// STUDENT CATALOG
 import catalog1 from "./assets/catalog-1.png";
 import catalog2 from "./assets/catalog-2.png";
 
-import topup1 from "./assets/topup-roblox-1.png";
-import topup2 from "./assets/topup-roblox-2.png";
-
+// OTHER PROJECTS
 import scratchGame from "./assets/scratch-game.png";
 import weatherApp from "./assets/weather-app.png";
 
@@ -78,9 +80,6 @@ const projects = [
       combat4,
       combat5,
     ],
-
-    detail:
-      "Combat Combo merupakan project game yang sedang saya kembangkan dengan fokus pada gameplay, desain visual, dan pengalaman bermain. Project ini dibuat untuk platform mobile dan PC.",
   },
 
   {
@@ -99,9 +98,6 @@ const projects = [
       topup1,
       topup2,
     ],
-
-    detail:
-      "Ailochia merupakan website top up Roblox yang saya buat untuk menampilkan produk, nominal Robux, harga, dan proses pembelian dengan tampilan yang sederhana dan mudah digunakan.",
   },
 
   {
@@ -110,7 +106,7 @@ const projects = [
     category: "Game / Visual Novel",
 
     description:
-      "Project game dengan konsep visual novel yang berfokus pada desain tampilan, visual, dan pengalaman pengguna.",
+      "Project game dengan konsep visual novel yang berfokus pada desain tampilan, visual, cerita, dan pengalaman pengguna.",
 
     tech: ["Game Design", "UI Design"],
 
@@ -121,9 +117,6 @@ const projects = [
       kala2,
       kala3,
     ],
-
-    detail:
-      "Kala Ananta merupakan project game dengan konsep visual novel yang mengangkat unsur cerita, visual, dan nuansa budaya. Project ini berfokus pada pengalaman pemain dalam mengikuti cerita melalui tampilan visual dan desain game.",
   },
 
   {
@@ -142,9 +135,6 @@ const projects = [
       catalog1,
       catalog2,
     ],
-
-    detail:
-      "Student Catalog merupakan website katalog siswa yang digunakan untuk menampilkan berbagai produk dan karya siswa secara lebih terstruktur dan menarik.",
   },
 
   {
@@ -162,9 +152,6 @@ const projects = [
     images: [
       scratchGame,
     ],
-
-    detail:
-      "Project ini dibuat menggunakan Scratch sebagai latihan dalam mempelajari dasar game development, interactive programming, karakter, dan gameplay.",
   },
 
   {
@@ -182,9 +169,6 @@ const projects = [
     images: [
       weatherApp,
     ],
-
-    detail:
-      "Weather App merupakan aplikasi yang dibuat untuk menampilkan informasi cuaca berdasarkan kota menggunakan API dan tampilan GUI.",
   },
 ];
 
@@ -200,47 +184,72 @@ function App() {
   const [currentImage, setCurrentImage] = useState(0);
 
 
-  // Buka project
+  // =========================
+  // OPEN PROJECT
+  // =========================
+
   const openProject = (project) => {
+
     setSelectedProject(project);
+
     setCurrentImage(0);
+
   };
 
 
-  // Tutup project
+  // =========================
+  // CLOSE PROJECT
+  // =========================
+
   const closeProject = () => {
+
     setSelectedProject(null);
+
     setCurrentImage(0);
+
   };
 
 
-  // Gambar sebelumnya
-  const previousImage = () => {
+  // =========================
+  // NEXT IMAGE
+  // =========================
 
-    if (!selectedProject) return;
-
-    setCurrentImage((prev) =>
-      prev === 0
-        ? selectedProject.images.length - 1
-        : prev - 1
-    );
-  };
-
-
-  // Gambar berikutnya
   const nextImage = () => {
 
     if (!selectedProject) return;
 
     setCurrentImage((prev) =>
+
       prev === selectedProject.images.length - 1
         ? 0
         : prev + 1
+
     );
+
+  };
+
+
+  // =========================
+  // PREVIOUS IMAGE
+  // =========================
+
+  const previousImage = () => {
+
+    if (!selectedProject) return;
+
+    setCurrentImage((prev) =>
+
+      prev === 0
+        ? selectedProject.images.length - 1
+        : prev - 1
+
+    );
+
   };
 
 
   return (
+
     <div className="app">
 
 
@@ -251,7 +260,11 @@ function App() {
       <header className="navbar">
 
         <div className="logo">
-          <span>&lt;/&gt;</span> Aquilla.dev
+
+          <span>&lt;/&gt;</span>
+
+          Aquilla.dev
+
         </div>
 
 
@@ -305,7 +318,9 @@ function App() {
 
 
           <div className="hello-badge">
+
             👋 Hi, I'm
+
           </div>
 
 
@@ -327,17 +342,26 @@ function App() {
 
 
           <h2>
-            Web Developer <b>|</b> RPL Student
+
+            Web Developer
+
+            <b>
+              |
+            </b>
+
+            RPL Student
+
           </h2>
 
 
           <p>
-            Saya adalah siswa jurusan Rekayasa
-            Perangkat Lunak yang memiliki ketertarikan
-            pada web development dan programming.
-            Saya senang mempelajari hal baru dan
-            membangun berbagai project untuk
-            mengembangkan kemampuan saya.
+
+            Saya adalah siswa jurusan Pengembangan Perangkat Lunak
+            yang memiliki ketertarikan pada web development dan
+            programming. Saya senang mempelajari hal baru dan
+            membangun berbagai project untuk mengembangkan
+            kemampuan saya.
+
           </p>
 
 
@@ -360,7 +384,6 @@ function App() {
 
           </div>
 
-
         </div>
 
 
@@ -368,6 +391,7 @@ function App() {
         {/* FOTO */}
 
         <div className="photo-area">
+
 
           <div className="blue-circle"></div>
 
@@ -387,6 +411,7 @@ function App() {
             <span>
               💻
             </span>
+
 
             <div>
 
@@ -413,9 +438,11 @@ function App() {
 
           <div className="card-title">
 
+
             <div className="title-icon">
               👤
             </div>
+
 
             <div>
 
@@ -524,6 +551,7 @@ function App() {
 
         <div className="about-card">
 
+
           <div className="section-label">
             01 / ABOUT ME
           </div>
@@ -534,28 +562,29 @@ function App() {
             Saya suka membuat
 
             <span>
-              {" "}sesuatu dengan kode.
+              sesuatu dengan kode.
             </span>
 
           </h2>
 
 
           <p>
-            Saya merupakan siswa SMK jurusan
-            Rekayasa Perangkat Lunak.
-            Saya memiliki minat yang besar
-            dalam pengembangan website dan
-            selalu bersemangat untuk mempelajari
-            teknologi baru.
+
+            Saya merupakan siswa SMK jurusan Pengembangan
+            Perangkat Lunak. Saya memiliki minat yang besar
+            dalam pengembangan website dan selalu bersemangat
+            untuk mempelajari teknologi baru.
+
           </p>
 
 
           <p>
-            Melalui berbagai project sekolah
-            dan personal, saya terus mengembangkan
-            kemampuan dalam membuat website,
-            aplikasi, dan game yang menarik,
+
+            Melalui berbagai project sekolah dan personal,
+            saya terus mengembangkan kemampuan dalam membuat
+            website, aplikasi, dan game yang menarik,
             fungsional, dan mudah digunakan.
+
           </p>
 
 
@@ -573,8 +602,7 @@ function App() {
               </h4>
 
               <p>
-                Membangun website yang
-                responsif dan interaktif.
+                Membangun website yang responsif dan interaktif.
               </p>
 
             </div>
@@ -591,8 +619,7 @@ function App() {
               </h4>
 
               <p>
-                Membuat dan mengembangkan
-                project game.
+                Membuat dan mengembangkan project game.
               </p>
 
             </div>
@@ -609,14 +636,14 @@ function App() {
               </h4>
 
               <p>
-                Mencari solusi untuk setiap
-                masalah dalam project.
+                Mencari solusi untuk setiap masalah dalam project.
               </p>
 
             </div>
 
 
           </div>
+
 
         </div>
 
@@ -629,6 +656,7 @@ function App() {
           className="skills-card"
         >
 
+
           <div className="section-label">
             02 / SKILLS
           </div>
@@ -640,8 +668,10 @@ function App() {
 
 
           <p className="skills-description">
+
             Teknologi yang sedang saya pelajari
             dan gunakan dalam project.
+
           </p>
 
 
@@ -654,6 +684,7 @@ function App() {
                 className="skill"
                 key={skill.name}
               >
+
 
                 <div className="skill-info">
 
@@ -675,9 +706,10 @@ function App() {
                     style={{
                       width: skill.percent,
                     }}
-                  ></div>
+                  />
 
                 </div>
+
 
               </div>
 
@@ -698,6 +730,7 @@ function App() {
             </strong>
 
           </div>
+
 
         </div>
 
@@ -725,6 +758,7 @@ function App() {
               03 / PROJECTS
             </div>
 
+
             <h2>
               Project yang pernah saya buat.
             </h2>
@@ -733,9 +767,11 @@ function App() {
 
 
           <p>
+
             Beberapa project yang saya kerjakan
             selama proses belajar programming,
             web development, dan game development.
+
           </p>
 
 
@@ -751,11 +787,7 @@ function App() {
             <article
               className="project-card"
               key={project.number}
-
-              onClick={() =>
-                openProject(project)
-              }
-
+              onClick={() => openProject(project)}
             >
 
 
@@ -764,6 +796,7 @@ function App() {
                 <span>
                   {project.number}
                 </span>
+
 
                 <span className="project-status">
                   {project.status}
@@ -801,7 +834,9 @@ function App() {
               </p>
 
 
+
               <div className="tech-tags">
+
 
                 {project.tech.map((tech) => (
 
@@ -811,11 +846,15 @@ function App() {
 
                 ))}
 
+
               </div>
 
 
+
               <div className="project-view">
-                Click to view project ↗
+
+                Lihat detail project ↗
+
               </div>
 
 
@@ -825,6 +864,7 @@ function App() {
 
 
         </div>
+
 
       </section>
 
@@ -838,6 +878,7 @@ function App() {
         id="contact"
         className="contact-section"
       >
+
 
         <div className="contact-box">
 
@@ -861,21 +902,28 @@ function App() {
 
 
           <p>
+
             Saya terbuka untuk kesempatan belajar,
             berkolaborasi, dan mendapatkan pengalaman
             melalui PKL.
+
           </p>
 
 
           <a
-            href="mailto:aquillaramadhani8@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=aquillaramadhani8@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             className="primary-button"
           >
+
             Email Me ↗
+
           </a>
 
 
         </div>
+
 
       </section>
 
@@ -887,13 +935,16 @@ function App() {
 
       <footer>
 
+
         <div>
           © 2026 Aquilla Ramadhani
         </div>
 
+
         <div>
           Built with React & ❤️
         </div>
+
 
       </footer>
 
@@ -907,18 +958,23 @@ function App() {
 
         <div
           className="project-modal-overlay"
+          onClick={(event) => {
 
-          onClick={closeProject}
+            if (
+              event.target.classList.contains(
+                "project-modal-overlay"
+              )
+            ) {
+
+              closeProject();
+
+            }
+
+          }}
         >
 
 
-          <div
-            className="project-modal"
-
-            onClick={(e) =>
-              e.stopPropagation()
-            }
-          >
+          <div className="project-modal">
 
 
             {/* CLOSE */}
@@ -941,11 +997,14 @@ function App() {
               </span>
 
               <span>
-                {selectedProject.category}
+                {selectedProject.status}
               </span>
 
             </div>
 
+
+
+            {/* TITLE */}
 
             <h2>
               {selectedProject.title}
@@ -959,15 +1018,13 @@ function App() {
 
 
               <img
+                className="modal-project-image"
                 src={
                   selectedProject.images[currentImage]
                 }
-
                 alt={
-                  `${selectedProject.title} screenshot ${currentImage + 1}`
+                  selectedProject.title
                 }
-
-                className="modal-project-image"
               />
 
 
@@ -978,8 +1035,8 @@ function App() {
 
                 <button
                   className="slider-button slider-prev"
-
                   onClick={previousImage}
+                  aria-label="Previous image"
                 >
                   ‹
                 </button>
@@ -994,8 +1051,8 @@ function App() {
 
                 <button
                   className="slider-button slider-next"
-
                   onClick={nextImage}
+                  aria-label="Next image"
                 >
                   ›
                 </button>
@@ -1025,30 +1082,75 @@ function App() {
 
 
 
-            {/* DETAIL */}
+            {/* DOTS */}
+
+            {selectedProject.images.length > 1 && (
+
+              <div className="image-dots">
+
+
+                {selectedProject.images.map(
+                  (_, index) => (
+
+                    <button
+                      key={index}
+                      className={
+                        index === currentImage
+                          ? "active"
+                          : ""
+                      }
+                      onClick={() =>
+                        setCurrentImage(index)
+                      }
+                    />
+
+                  )
+                )}
+
+
+              </div>
+
+            )}
+
+
+
+            {/* PROJECT INFORMATION */}
 
             <div className="modal-content">
+
+
+              <span className="project-category">
+                {selectedProject.category}
+              </span>
+
 
               <h3>
                 Tentang Project
               </h3>
 
+
               <p>
-                {selectedProject.detail}
+                {selectedProject.description}
               </p>
+
 
 
               <div className="modal-tags">
 
-                {selectedProject.tech.map((tech) => (
 
-                  <span key={tech}>
-                    {tech}
-                  </span>
+                {selectedProject.tech.map(
+                  (tech) => (
 
-                ))}
+                    <span key={tech}>
+                      {tech}
+                    </span>
+
+                  )
+                )}
+
 
               </div>
+
 
             </div>
 
@@ -1061,7 +1163,9 @@ function App() {
 
 
     </div>
+
   );
+
 }
 
 
