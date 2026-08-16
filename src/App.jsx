@@ -1,36 +1,49 @@
 import { useState } from "react";
 import "./App.css";
 
+// =========================
+// PROFILE
+// =========================
 import profilePhoto from "./assets/profile.jpg";
 
+// =========================
 // COMBAT COMBO
+// =========================
 import combat1 from "./assets/combat-1.png";
 import combat2 from "./assets/combat-2.png";
 import combat3 from "./assets/combat-3.png";
 import combat4 from "./assets/combat-4.png";
 import combat5 from "./assets/combat-5.png";
 
+// =========================
 // TOP UP ROBLOX
+// =========================
 import topup1 from "./assets/topup-roblox-1.png";
 import topup2 from "./assets/topup-roblox-2.png";
 
+// =========================
 // KALA ANANTA
+// =========================
 import kala1 from "./assets/kala-1.png";
 import kala2 from "./assets/kala-2.png";
 import kala3 from "./assets/kala-3.png";
 
+// =========================
 // STUDENT CATALOG
+// =========================
 import catalog1 from "./assets/catalog-1.png";
 import catalog2 from "./assets/catalog-2.png";
 
+// =========================
 // OTHER PROJECTS
+// =========================
 import scratchGame from "./assets/scratch-game.png";
 import weatherApp from "./assets/weather-app.png";
 
 
-// =========================
+// ======================================================
 // SKILLS
-// =========================
+// ======================================================
 
 const skills = [
   {
@@ -56,22 +69,25 @@ const skills = [
 ];
 
 
-// =========================
+// ======================================================
 // PROJECTS
-// =========================
+// ======================================================
 
 const projects = [
   {
     number: "01",
     title: "Combat Combo",
     category: "Game Development",
+    status: "In Development",
 
     description:
       "Game yang sedang saya kembangkan untuk platform mobile dan PC. Project ini berfokus pada gameplay, desain, dan pengembangan pengalaman bermain.",
 
-    tech: ["Game Development", "Mobile", "PC"],
-
-    status: "In Development",
+    tech: [
+      "Game Development",
+      "Mobile",
+      "PC",
+    ],
 
     images: [
       combat1,
@@ -86,13 +102,16 @@ const projects = [
     number: "02",
     title: "Top Up Roblox — Ailochia",
     category: "Web Development",
+    status: "Localhost",
 
     description:
       "Website top up Roblox yang dibuat untuk menampilkan pilihan produk, nominal Robux, harga, dan form pembelian secara sederhana.",
 
-    tech: ["HTML", "CSS", "JavaScript"],
-
-    status: "Localhost",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
 
     images: [
       topup1,
@@ -104,13 +123,15 @@ const projects = [
     number: "03",
     title: "Kala Ananta",
     category: "Game / Visual Novel",
+    status: "Project",
 
     description:
       "Project game dengan konsep visual novel yang berfokus pada desain tampilan, visual, cerita, dan pengalaman pengguna.",
 
-    tech: ["Game Design", "UI Design"],
-
-    status: "Project",
+    tech: [
+      "Game Design",
+      "UI Design",
+    ],
 
     images: [
       kala1,
@@ -123,13 +144,16 @@ const projects = [
     number: "04",
     title: "Student Catalog Website",
     category: "Web Development",
+    status: "Localhost",
 
     description:
       "Website katalog yang dibuat untuk menampilkan dan memperkenalkan produk atau karya siswa melalui tampilan web yang terstruktur.",
 
-    tech: ["HTML", "CSS", "JavaScript"],
-
-    status: "Localhost",
+    tech: [
+      "HTML",
+      "CSS",
+      "JavaScript",
+    ],
 
     images: [
       catalog1,
@@ -141,13 +165,15 @@ const projects = [
     number: "05",
     title: "Scratch Game",
     category: "Game Development",
+    status: "Completed",
 
     description:
       "Project game yang dibuat menggunakan Scratch sebagai bagian dari proses belajar dasar game development dan interactive programming.",
 
-    tech: ["Scratch", "Game Design"],
-
-    status: "Completed",
+    tech: [
+      "Scratch",
+      "Game Design",
+    ],
 
     images: [
       scratchGame,
@@ -158,13 +184,16 @@ const projects = [
     number: "06",
     title: "Weather App",
     category: "Application",
+    status: "Completed",
 
     description:
       "Aplikasi untuk mencari informasi cuaca berdasarkan kota menggunakan API dan tampilan GUI.",
 
-    tech: ["Java", "API", "GUI"],
-
-    status: "Completed",
+    tech: [
+      "Java",
+      "API",
+      "GUI",
+    ],
 
     images: [
       weatherApp,
@@ -173,78 +202,79 @@ const projects = [
 ];
 
 
-// =========================
+// ======================================================
 // APP
-// =========================
+// ======================================================
 
 function App() {
 
-  const [selectedProject, setSelectedProject] = useState(null);
+  const [selectedProject, setSelectedProject] =
+    useState(null);
 
-  const [currentImage, setCurrentImage] = useState(0);
+  const [currentImage, setCurrentImage] =
+    useState(0);
 
 
-  // =========================
+  // ====================================================
   // OPEN PROJECT
-  // =========================
+  // ====================================================
 
   const openProject = (project) => {
-
     setSelectedProject(project);
-
     setCurrentImage(0);
-
   };
 
 
-  // =========================
+  // ====================================================
   // CLOSE PROJECT
-  // =========================
+  // ====================================================
 
   const closeProject = () => {
-
     setSelectedProject(null);
-
     setCurrentImage(0);
-
   };
 
 
-  // =========================
+  // ====================================================
   // NEXT IMAGE
-  // =========================
+  // ====================================================
 
   const nextImage = () => {
 
     if (!selectedProject) return;
 
-    setCurrentImage((prev) =>
+    setCurrentImage((prev) => {
 
-      prev === selectedProject.images.length - 1
-        ? 0
-        : prev + 1
+      if (
+        prev ===
+        selectedProject.images.length - 1
+      ) {
+        return 0;
+      }
 
-    );
+      return prev + 1;
 
+    });
   };
 
 
-  // =========================
+  // ====================================================
   // PREVIOUS IMAGE
-  // =========================
+  // ====================================================
 
   const previousImage = () => {
 
     if (!selectedProject) return;
 
-    setCurrentImage((prev) =>
+    setCurrentImage((prev) => {
 
-      prev === 0
-        ? selectedProject.images.length - 1
-        : prev - 1
+      if (prev === 0) {
+        return selectedProject.images.length - 1;
+      }
 
-    );
+      return prev - 1;
 
+    });
   };
 
 
@@ -253,18 +283,15 @@ function App() {
     <div className="app">
 
 
-      {/* =========================
+      {/* ==================================================
           NAVBAR
-      ========================= */}
+      ================================================== */}
 
       <header className="navbar">
 
         <div className="logo">
-
           <span>&lt;/&gt;</span>
-
           Aquilla.dev
-
         </div>
 
 
@@ -304,9 +331,9 @@ function App() {
 
 
 
-      {/* =========================
-          HERO
-      ========================= */}
+      {/* ==================================================
+          HOME
+      ================================================== */}
 
       <section
         id="home"
@@ -314,13 +341,14 @@ function App() {
       >
 
 
+        {/* ============================
+            HERO TEXT
+        ============================ */}
+
         <div className="hero-text">
 
-
           <div className="hello-badge">
-
             👋 Hi, I'm
-
           </div>
 
 
@@ -333,6 +361,8 @@ function App() {
             <span>
               Ramadhani
             </span>
+
+            <br />
 
             <span>
               Syacdhan.
@@ -356,11 +386,12 @@ function App() {
 
           <p>
 
-            Saya adalah siswa jurusan Pengembangan Perangkat Lunak
-            yang memiliki ketertarikan pada web development dan
-            programming. Saya senang mempelajari hal baru dan
-            membangun berbagai project untuk mengembangkan
-            kemampuan saya.
+            Saya adalah siswa jurusan Rekayasa
+            Perangkat Lunak yang memiliki ketertarikan
+            pada web development dan programming.
+            Saya senang mempelajari hal baru dan
+            membangun berbagai project untuk
+            mengembangkan kemampuan saya.
 
           </p>
 
@@ -388,9 +419,13 @@ function App() {
 
 
 
-        {/* FOTO */}
+        {/* ============================
+            HERO PHOTO
+        ============================ */}
 
         <div className="photo-area">
+
+          <div className="photo-glow"></div>
 
 
           <div className="blue-circle"></div>
@@ -408,7 +443,7 @@ function App() {
 
           <div className="floating-card">
 
-            <span>
+            <span className="floating-icon">
               💻
             </span>
 
@@ -429,117 +464,13 @@ function App() {
 
         </div>
 
-
-
-        {/* DATA PRIBADI */}
-
-        <div className="personal-card">
-
-
-          <div className="card-title">
-
-
-            <div className="title-icon">
-              👤
-            </div>
-
-
-            <div>
-
-              <span>
-                PROFILE
-              </span>
-
-              <h3>
-                Data Pribadi
-              </h3>
-
-            </div>
-
-          </div>
-
-
-
-          <div className="personal-list">
-
-
-            <div className="personal-item">
-
-              <span>
-                Nama
-              </span>
-
-              <strong>
-                Aquilla Ramadhani Syacdhan
-              </strong>
-
-            </div>
-
-
-            <div className="personal-item">
-
-              <span>
-                Domisili
-              </span>
-
-              <strong>
-                Bandung, Indonesia
-              </strong>
-
-            </div>
-
-
-            <div className="personal-item">
-
-              <span>
-                Email
-              </span>
-
-              <strong className="blue-text">
-                aquillaramadhani8@gmail.com
-              </strong>
-
-            </div>
-
-
-            <div className="personal-item">
-
-              <span>
-                Status
-              </span>
-
-              <strong>
-                Student
-              </strong>
-
-            </div>
-
-
-            <div className="personal-item">
-
-              <span>
-                Jurusan
-              </span>
-
-              <strong>
-                RPL
-              </strong>
-
-            </div>
-
-
-          </div>
-
-        </div>
-
-
       </section>
 
 
 
-      {/* =========================
-          ABOUT + SKILLS
-      ========================= */}
+      {/* ==================================================
+          ABOUT
+      ================================================== */}
 
       <section
         id="about"
@@ -547,201 +478,341 @@ function App() {
       >
 
 
-        {/* ABOUT */}
+        <div className="section-label">
+          01 / ABOUT ME
+        </div>
 
-        <div className="about-card">
 
+        <div className="about-heading">
 
-          <div className="section-label">
-            01 / ABOUT ME
+          <div>
+
+            <h2>
+              Kenalan lebih dekat
+              <span>
+                {" "}dengan saya.
+              </span>
+            </h2>
+
           </div>
-
-
-          <h2>
-
-            Saya suka membuat
-
-            <span>
-              sesuatu dengan kode.
-            </span>
-
-          </h2>
 
 
           <p>
 
-            Saya merupakan siswa SMK jurusan Pengembangan
-            Perangkat Lunak. Saya memiliki minat yang besar
-            dalam pengembangan website dan selalu bersemangat
-            untuk mempelajari teknologi baru.
+            Sedikit informasi mengenai diri saya,
+            pendidikan, dan ketertarikan saya
+            terhadap dunia teknologi.
 
           </p>
-
-
-          <p>
-
-            Melalui berbagai project sekolah dan personal,
-            saya terus mengembangkan kemampuan dalam membuat
-            website, aplikasi, dan game yang menarik,
-            fungsional, dan mudah digunakan.
-
-          </p>
-
-
-          <div className="about-features">
-
-
-            <div>
-
-              <span>
-                01
-              </span>
-
-              <h4>
-                Web Development
-              </h4>
-
-              <p>
-                Membangun website yang responsif dan interaktif.
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <span>
-                02
-              </span>
-
-              <h4>
-                Game Development
-              </h4>
-
-              <p>
-                Membuat dan mengembangkan project game.
-              </p>
-
-            </div>
-
-
-            <div>
-
-              <span>
-                03
-              </span>
-
-              <h4>
-                Problem Solving
-              </h4>
-
-              <p>
-                Mencari solusi untuk setiap masalah dalam project.
-              </p>
-
-            </div>
-
-
-          </div>
-
 
         </div>
 
 
 
-        {/* SKILLS */}
-
-        <div
-          id="skills"
-          className="skills-card"
-        >
+        <div className="about-grid">
 
 
-          <div className="section-label">
-            02 / SKILLS
-          </div>
+          {/* =========================
+              DATA PRIBADI
+          ========================= */}
+
+          <div className="personal-card">
+
+            <div className="card-title">
+
+              <div className="title-icon">
+                👤
+              </div>
 
 
-          <h2>
-            Keahlian saya.
-          </h2>
+              <div>
 
+                <span>
+                  PROFILE
+                </span>
 
-          <p className="skills-description">
-
-            Teknologi yang sedang saya pelajari
-            dan gunakan dalam project.
-
-          </p>
-
-
-          <div className="skills-list">
-
-
-            {skills.map((skill) => (
-
-              <div
-                className="skill"
-                key={skill.name}
-              >
-
-
-                <div className="skill-info">
-
-                  <strong>
-                    {skill.name}
-                  </strong>
-
-                  <span>
-                    {skill.level}
-                  </span>
-
-                </div>
-
-
-                <div className="progress">
-
-                  <div
-                    className="progress-fill"
-                    style={{
-                      width: skill.percent,
-                    }}
-                  />
-
-                </div>
-
+                <h3>
+                  Data Pribadi
+                </h3>
 
               </div>
 
-            ))}
+            </div>
 
+
+
+            <div className="personal-list">
+
+
+              <div className="personal-item">
+
+                <span>
+                  Nama
+                </span>
+
+                <strong>
+                  Aquilla Ramadhani Syacdhan
+                </strong>
+
+              </div>
+
+
+              <div className="personal-item">
+
+                <span>
+                  Domisili
+                </span>
+
+                <strong>
+                  Bandung, Indonesia
+                </strong>
+
+              </div>
+
+
+              <div className="personal-item">
+
+                <span>
+                  Email
+                </span>
+
+                <strong className="blue-text">
+                  aquillaramadhani8@gmail.com
+                </strong>
+
+              </div>
+
+
+              <div className="personal-item">
+
+                <span>
+                  Status
+                </span>
+
+                <strong>
+                  Student
+                </strong>
+
+              </div>
+
+
+              <div className="personal-item">
+
+                <span>
+                  Jurusan
+                </span>
+
+                <strong>
+                  RPL
+                </strong>
+
+              </div>
+
+
+            </div>
 
           </div>
 
 
-          <div className="main-skill">
 
-            <span>
-              FOCUS
+          {/* =========================
+              ABOUT ME
+          ========================= */}
+
+          <div className="about-card">
+
+            <span className="about-number">
+              01
             </span>
 
-            <strong>
-              🌐 Web Development
-            </strong>
+
+            <h3>
+
+              Saya suka membuat
+
+              <span>
+                {" "}sesuatu dengan kode.
+              </span>
+
+            </h3>
+
+
+            <p>
+
+              Saya merupakan siswa SMK jurusan
+              Rekayasa Perangkat Lunak yang memiliki
+              minat besar dalam dunia teknologi,
+              khususnya website, aplikasi,
+              dan game development.
+
+            </p>
+
+
+            <p>
+
+              Melalui berbagai project sekolah dan
+              personal, saya terus mengembangkan
+              kemampuan dalam membuat website,
+              aplikasi, dan game yang menarik,
+              fungsional, dan mudah digunakan.
+
+            </p>
+
+
+            <div className="about-features">
+
+
+              <div>
+
+                <span>
+                  01
+                </span>
+
+                <h4>
+                  Web Development
+                </h4>
+
+                <p>
+                  Membangun website yang
+                  responsif dan interaktif.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  02
+                </span>
+
+                <h4>
+                  Game Development
+                </h4>
+
+                <p>
+                  Membuat dan mengembangkan
+                  project game.
+                </p>
+
+              </div>
+
+
+              <div>
+
+                <span>
+                  03
+                </span>
+
+                <h4>
+                  Problem Solving
+                </h4>
+
+                <p>
+                  Mencari solusi untuk berbagai
+                  masalah dalam project.
+                </p>
+
+              </div>
+
+
+            </div>
 
           </div>
 
-
         </div>
-
 
       </section>
 
 
 
-      {/* =========================
+      {/* ==================================================
+          SKILLS
+      ================================================== */}
+
+      <section
+        id="skills"
+        className="skills-section"
+      >
+
+        <div className="section-label">
+          02 / SKILLS
+        </div>
+
+
+        <div className="section-heading">
+
+          <h2>
+            Keahlian saya.
+          </h2>
+
+          <p>
+            Teknologi yang sedang saya pelajari
+            dan gunakan dalam project.
+          </p>
+
+        </div>
+
+
+        <div className="skills-list">
+
+          {skills.map((skill) => (
+
+            <div
+              className="skill"
+              key={skill.name}
+            >
+
+              <div className="skill-info">
+
+                <strong>
+                  {skill.name}
+                </strong>
+
+                <span>
+                  {skill.level}
+                </span>
+
+              </div>
+
+
+              <div className="progress">
+
+                <div
+                  className="progress-fill"
+                  style={{
+                    width: skill.percent,
+                  }}
+                />
+
+              </div>
+
+            </div>
+
+          ))}
+
+        </div>
+
+
+        <div className="main-skill">
+
+          <span>
+            FOCUS
+          </span>
+
+          <strong>
+            🌐 Web Development
+          </strong>
+
+        </div>
+
+      </section>
+
+
+
+      {/* ==================================================
           PROJECTS
-      ========================= */}
+      ================================================== */}
 
       <section
         id="projects"
@@ -749,15 +820,14 @@ function App() {
       >
 
 
+        <div className="section-label">
+          03 / PROJECTS
+        </div>
+
+
         <div className="projects-heading">
 
-
           <div>
-
-            <div className="section-label">
-              03 / PROJECTS
-            </div>
-
 
             <h2>
               Project yang pernah saya buat.
@@ -774,7 +844,6 @@ function App() {
 
           </p>
 
-
         </div>
 
 
@@ -787,7 +856,9 @@ function App() {
             <article
               className="project-card"
               key={project.number}
-              onClick={() => openProject(project)}
+              onClick={() =>
+                openProject(project)
+              }
             >
 
 
@@ -797,7 +868,6 @@ function App() {
                   {project.number}
                 </span>
 
-
                 <span className="project-status">
                   {project.status}
                 </span>
@@ -805,8 +875,6 @@ function App() {
               </div>
 
 
-
-              {/* PROJECT IMAGE */}
 
               <div className="project-preview">
 
@@ -819,66 +887,60 @@ function App() {
 
 
 
-              <span className="project-category">
-                {project.category}
-              </span>
+              <div className="project-body">
+
+                <span className="project-category">
+                  {project.category}
+                </span>
 
 
-              <h3>
-                {project.title}
-              </h3>
+                <h3>
+                  {project.title}
+                </h3>
 
 
-              <p>
-                {project.description}
-              </p>
+                <p>
+                  {project.description}
+                </p>
 
 
+                <div className="tech-tags">
 
-              <div className="tech-tags">
+                  {project.tech.map((tech) => (
 
+                    <span key={tech}>
+                      {tech}
+                    </span>
 
-                {project.tech.map((tech) => (
+                  ))}
 
-                  <span key={tech}>
-                    {tech}
-                  </span>
-
-                ))}
-
-
-              </div>
+                </div>
 
 
-
-              <div className="project-view">
-
-                Lihat detail project ↗
+                <div className="project-view">
+                  Lihat detail project ↗
+                </div>
 
               </div>
-
 
             </article>
 
           ))}
 
-
         </div>
-
 
       </section>
 
 
 
-      {/* =========================
+      {/* ==================================================
           CONTACT
-      ========================= */}
+      ================================================== */}
 
       <section
         id="contact"
         className="contact-section"
       >
-
 
         <div className="contact-box">
 
@@ -916,43 +978,37 @@ function App() {
             rel="noopener noreferrer"
             className="primary-button"
           >
-
             Email Me ↗
-
           </a>
 
 
         </div>
 
-
       </section>
 
 
 
-      {/* =========================
+      {/* ==================================================
           FOOTER
-      ========================= */}
+      ================================================== */}
 
       <footer>
-
 
         <div>
           © 2026 Aquilla Ramadhani
         </div>
 
-
         <div>
           Built with React & ❤️
         </div>
-
 
       </footer>
 
 
 
-      {/* =================================================
+      {/* ==================================================
           PROJECT DETAIL MODAL
-      ================================================= */}
+      ================================================== */}
 
       {selectedProject && (
 
@@ -1003,68 +1059,55 @@ function App() {
             </div>
 
 
-
-            {/* TITLE */}
-
             <h2>
               {selectedProject.title}
             </h2>
 
 
 
-            {/* IMAGE SLIDER */}
+            {/* IMAGE */}
 
             <div className="modal-image-container">
-
 
               <img
                 className="modal-project-image"
                 src={
-                  selectedProject.images[currentImage]
+                  selectedProject.images[
+                    currentImage
+                  ]
                 }
-                alt={
-                  selectedProject.title
-                }
+                alt={selectedProject.title}
               />
 
 
-
-              {/* PREVIOUS */}
-
               {selectedProject.images.length > 1 && (
 
-                <button
-                  className="slider-button slider-prev"
-                  onClick={previousImage}
-                  aria-label="Previous image"
-                >
-                  ‹
-                </button>
+                <>
+
+                  <button
+                    className="slider-button slider-prev"
+                    onClick={previousImage}
+                  >
+                    ‹
+                  </button>
+
+
+                  <button
+                    className="slider-button slider-next"
+                    onClick={nextImage}
+                  >
+                    ›
+                  </button>
+
+                </>
 
               )}
-
-
-
-              {/* NEXT */}
-
-              {selectedProject.images.length > 1 && (
-
-                <button
-                  className="slider-button slider-next"
-                  onClick={nextImage}
-                  aria-label="Next image"
-                >
-                  ›
-                </button>
-
-              )}
-
 
             </div>
 
 
 
-            {/* IMAGE COUNTER */}
+            {/* COUNTER */}
 
             {selectedProject.images.length > 1 && (
 
@@ -1088,7 +1131,6 @@ function App() {
 
               <div className="image-dots">
 
-
                 {selectedProject.images.map(
                   (_, index) => (
 
@@ -1107,17 +1149,15 @@ function App() {
                   )
                 )}
 
-
               </div>
 
             )}
 
 
 
-            {/* PROJECT INFORMATION */}
+            {/* DESCRIPTION */}
 
             <div className="modal-content">
-
 
               <span className="project-category">
                 {selectedProject.category}
@@ -1134,9 +1174,7 @@ function App() {
               </p>
 
 
-
               <div className="modal-tags">
-
 
                 {selectedProject.tech.map(
                   (tech) => (
@@ -1148,12 +1186,9 @@ function App() {
                   )
                 )}
 
-
               </div>
 
-
             </div>
-
 
           </div>
 
@@ -1161,13 +1196,9 @@ function App() {
 
       )}
 
-
     </div>
-
   );
-
 }
-
 
 
 export default App;
