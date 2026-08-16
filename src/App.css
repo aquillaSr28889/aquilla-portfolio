@@ -2479,9 +2479,13 @@ footer {
    ========================================= */
 
 .personal-card {
-  position: relative;
-  z-index: 5;
+  position: absolute;
+  right: 5%;
+  bottom: 35px;
+  width: 310px;
+  padding: 20px;
   box-sizing: border-box;
+  z-index: 5;
 }
 
 .personal-card .card-title {
@@ -2528,8 +2532,8 @@ footer {
    ANIMASI HERO
    ========================================= */
 
-.hero-text {
-  animation: heroTextIn 0.8s ease-out both;
+.hero-visual {
+  position: relative;
 }
 
 .photo-area {
