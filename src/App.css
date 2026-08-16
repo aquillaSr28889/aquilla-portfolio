@@ -2429,3 +2429,35 @@ footer {
 
 }
 
+/* FIX NAMA HERO */
+.hero h1 {
+  white-space: normal;
+}
+
+.hero h1 span {
+  display: inline;
+}
+
+/* FIX NAMA DI DATA PRIBADI */
+.personal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.personal-item strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  text-align: right;
+}
+
+.personal-item h1,
+.personal-item h2 {
+  margin: 0;
+}
+
+.personal-item span {
+  display: inline;
+}

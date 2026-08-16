@@ -471,10 +471,9 @@ function App() {
 
              <h1>
               Aquilla
-             <br />
-             <span>Ramadhani</span>{" "}
-             <span>Syacdhan.</span>
-</h1>
+            <br />
+             Ramadhani Syacdhan.
+             </h1>
             </div>
 
 
