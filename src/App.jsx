@@ -469,10 +469,12 @@ function App() {
                 Nama
               </span>
 
-              <strong>
-                Aquilla Ramadhani Syacdhan
-              </strong>
-
+             <h1>
+              Aquilla
+             <br />
+             <span>Ramadhani</span>{" "}
+             <span>Syacdhan.</span>
+</h1>
             </div>
 
 
@@ -558,14 +560,9 @@ function App() {
 
 
           <h2>
-
-            Saya suka membuat
-
-            <span>
-              sesuatu dengan kode.
-            </span>
-
-          </h2>
+  Saya suka membuat{" "}
+  <span>sesuatu dengan kode.</span>
+</h2>
 
 
           <p>
