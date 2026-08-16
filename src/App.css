@@ -2438,7 +2438,71 @@ footer {
   display: inline;
 }
 
-/* FIX NAMA DI DATA PRIBADI */
+/* =========================================
+   FIX HERO + PROFILE CARD
+   ========================================= */
+
+/* HERO */
+.hero-text h1 {
+  position: relative;
+}
+
+.hero-text h1 span {
+  display: inline;
+}
+
+/* Beri jarak antar nama */
+.hero-text h1 span + span {
+  margin-left: 0.18em;
+}
+
+
+/* =========================================
+   FOTO
+   ========================================= */
+
+.photo-area {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.photo-card {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* =========================================
+   PERSONAL CARD
+   ========================================= */
+
+.personal-card {
+  position: relative;
+  z-index: 5;
+  box-sizing: border-box;
+}
+
+.personal-card .card-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.personal-card .card-title h3 {
+  font-size: 20px !important;
+  line-height: 1.2 !important;
+  margin: 0 !important;
+}
+
+.personal-card .card-title span {
+  font-size: 11px !important;
+  line-height: 1.2 !important;
+}
+
+
+/* DATA DI DALAM CARD */
 .personal-item {
   display: flex;
   justify-content: space-between;
@@ -2446,18 +2510,119 @@ footer {
   gap: 20px;
 }
 
-.personal-item strong {
-  font-size: 14px;
+.personal-item > span {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
+  flex-shrink: 0;
+}
+
+.personal-item > strong {
+  font-size: 14px !important;
+  line-height: 1.4 !important;
   font-weight: 700;
-  color: var(--blue-dark);
   text-align: right;
 }
 
-.personal-item h1,
-.personal-item h2 {
-  margin: 0;
+
+/* =========================================
+   ANIMASI HERO
+   ========================================= */
+
+.hero-text {
+  animation: heroTextIn 0.8s ease-out both;
 }
 
-.personal-item span {
-  display: inline;
+.photo-area {
+  animation: photoIn 0.9s ease-out 0.15s both;
+}
+
+.personal-card {
+  animation: cardIn 0.8s ease-out 0.3s both;
+}
+
+.floating-card {
+  animation: floatingCardIn 0.8s ease-out 0.45s both,
+             floatingUp 3s ease-in-out 1.3s infinite;
+}
+
+
+/* Nama */
+.hero-text h1 {
+  animation: nameIn 0.9s ease-out 0.2s both;
+}
+
+
+/* =========================================
+   KEYFRAMES
+   ========================================= */
+
+@keyframes heroTextIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes photoIn {
+  from {
+    opacity: 0;
+    transform: translateX(35px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatingCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatingUp {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes nameIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
